@@ -1,0 +1,10 @@
+
+---
+layout: post
+title:  "一张图了解Kerberos访问流程"
+date:   2018-08-13 17:48:12 +0800
+tags:
+      - Others
+---
+
+![Kerberos (1).jpg](https://upload-images.jianshu.io/upload_images/9004616-4621f9bf81edf2db.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
