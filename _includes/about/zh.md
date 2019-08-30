@@ -7,7 +7,7 @@ Hi，我是柴永强，毕业于西安电子科技大学，现居西安，[亚�
 
 ##### 编程语言倾向表
 
-> __从左到右__ 为熟悉程度。
 
 > 语言 ： `scala` `java` `SQL` `Shell`
-> 开源项目 :  `Spark` `Flink` `Kafka` `Hive` `HBase` `yarn` `Zookeeper` `Redis` `FlinkStreamSQl` `spark-redis` `Redisson` `Jedis`  
+
+> 熟悉项目 :  `Spark` `Flink` `Kafka` `Hive` `HBase` `yarn` `Zookeeper` `Redis` `FlinkStreamSQl` `spark-redis` `Redisson` `Jedis`  
