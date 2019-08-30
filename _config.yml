@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     chaiyongqiang
-zhihu_username:     chaiyongqiang
-github_username:    chaiyongqiang
-twitter_username:   chaiyongqiang
+#weibo_username:     chaiyongqiang
+#zhihu_username:     chaiyongqiang
+#github_username:    chaiyongqiang
+#twitter_username:   chaiyongqiang
 #facebook_username:  huxpro
 #linkedin_username:  firstname-lastname-idxxxx
 
@@ -78,7 +78,7 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "For the next quantum leap<br>离开世界之前，一切都是过程"
+sidebar-about-description: "For the next quantum leap<br>Just do it"
 sidebar-avatar:       # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -98,6 +98,14 @@ service-worker: true
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
 
-
-
 # Friends
+friends: [
+{
+  title: "Foo Blog",
+  href: "http://foo.github.io/"
+},
+{
+  title: "Bar Blog",
+  href: "http://bar.github.io"
+}
+]
