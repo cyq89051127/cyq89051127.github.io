@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "JobManager & TaskManager 启动流程分析"
+date:   2018-12-17 16:22:12 +0800
+tags:
+      - Flink
+---
 ### JobManager启动流程
 
 * 核心启动类和方法 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "跳坑Kafka"
+title:  "Flink流流关联（interval join）总结"
 date:   2019-07-27 18:52:12 +0800
 tags:
       - Flink

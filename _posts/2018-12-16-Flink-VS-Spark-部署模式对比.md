@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Spark-VS-Flink---流处理中的Time&Window"
+date:   2019-04-06 16:22:12 +0800
+tags:
+      - Flink
+---
+
 本文主要对Flink和Spark集群的standalone模式及on yarn模式进行分析对比。Flink与Spark的应用调度和执行的核心区别是Flink不同的job在执行时，其task同时运行在同一个进程TaskManager进程中；Spark的不同job的task执行时，会启动不同的executor来调度执行，job之间是隔离的。
 
 ### Standalone模式

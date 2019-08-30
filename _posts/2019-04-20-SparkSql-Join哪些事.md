@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spark 配置"
+title:  "Spark-sql join那些事"
 date:   2019-04-20 11:57:12 +0800
 tags:
       - Spark
