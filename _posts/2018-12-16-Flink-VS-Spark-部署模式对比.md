@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spark-VS-Flink---流处理中的Time&Window"
+title:  "Spark-VS-Flink部署模式对比"
 date:   2019-04-06 16:22:12 +0800
 tags:
       - Flink
