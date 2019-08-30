@@ -1,11 +1,11 @@
 # Site settings
-title: Chai Blog
+title: Chai's Blog
 SEOTitle: 柴永强的博客 | Chai Blog
-header-img: img/home-bg.jpg
+header-img: img/1.jpg
 email: cyq89051127@gmail.com
 description: "关于大数据，流处理，关于Spark，Flink，Redis，Kafka，HBASE，Hive。"
 keyword: "大数据，流处理"
-url: "https://chaiyongqiang.me"              # your host, for absolute URL
+url: "https://cyq89051127.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
