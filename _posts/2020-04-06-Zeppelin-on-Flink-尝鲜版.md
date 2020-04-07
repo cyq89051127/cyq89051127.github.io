@@ -1,14 +1,10 @@
 ---
 layout: post
 title:  "Zeppelin on Flink小试牛刀"
-date:   2020-04-02 16:40:12 +0800
+date:   2020-04-07 15:12:12 +0800
 tags:
       - Flink
 ---
-
-Zeppelin on Flink 尝鲜
-
-
 
 Zepplin 从0.9 版本（当前该版本还未release，只有预览版）开始支持Flink最新版本1.10，鉴于Flink1.10版本全面合入了Blink能力，在sql使用上展现出强大实力，笔者决定使用其预览版尝鲜。
 
