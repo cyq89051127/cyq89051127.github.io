@@ -8,6 +8,26 @@ tags:
 
 ### Flink重要配置：
 
+
+#### Flink重要的配置类
+
+|配置类|说明|备注|
+|---|----|----|
+|ResourceManagerOptions.java | The set of configuration options relating to the ResourceManager|
+|CoreOptions.java | The set of configuration options for core parameters|
+|YarnConfigOptions.java | This class holds configuration constants used by Flink's YARN runners.|These options are not expected to be ever configured by users explicitly.|
+|RestOptions.java |Configuration parameters for REST communication.||
+|AkkaOptions.java| Akka configuration options.|
+|BlobServerOptions.java|Configuration options for the BlobServer and BlobCache.|
+|ClusterOptions.java|Options which control the cluster behaviour.|
+|ExecutionOptions.java|specific for a single execution of a user program.|
+|DeploymentOptions.java|The {@link ConfigOption configuration options} relevant for all Executors.|
+|ExecutionConfigOptions.java|This class holds configuration constants used by Flink's table module.| This is only used for the Blink planner.All option keys in this class must start with "table.exec".|
+|ExecutionCheckpointingOptions.java | Execution {@link ConfigOption} for configuring checkpointing related parameters|
+|CheckpointingOptions.java | A collection of all configuration options that relate to checkpoints and savepoints.|
+
+
+#### 常用参数配置说明
 flink程序在运行时，flink的客户端进程加载的log4j文件的配置不会打印应用侧的日志，需要加上相关配置才会打印
 
 
