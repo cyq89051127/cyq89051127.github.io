@@ -25,7 +25,8 @@ tags:
 |ExecutionConfigOptions.java|This class holds configuration constants used by Flink's table module.| This is only used for the Blink planner.All option keys in this class must start with "table.exec".|
 |ExecutionCheckpointingOptions.java | Execution {@link ConfigOption} for configuring checkpointing related parameters|
 |CheckpointingOptions.java | A collection of all configuration options that relate to checkpoints and savepoints.|
-
+|TaskManagerOptions.java | The set of configuration options relating to TaskManager and Task settings.|
+|JobManagerOptions.java | Configuration options for the JobManager.|
 
 #### 常用参数配置说明
 flink程序在运行时，flink的客户端进程加载的log4j文件的配置不会打印应用侧的日志，需要加上相关配置才会打印
