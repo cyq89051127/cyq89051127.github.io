@@ -27,8 +27,10 @@ tags:
 |CheckpointingOptions.java | A collection of all configuration options that relate to checkpoints and savepoints.|
 |TaskManagerOptions.java | The set of configuration options relating to TaskManager and Task settings.|
 |JobManagerOptions.java | Configuration options for the JobManager.|
+|HeartbeatManagerOptions|The set of configuration options relating to heartbeat manager settings.|
+|WebOptions.java | Configuration options for the WebMonitorEndpoint.|
 
-#### 常用参数配置说明
+#### Common configs
 flink程序在运行时，flink的客户端进程加载的log4j文件的配置不会打印应用侧的日志，需要加上相关配置才会打印
 
 
