@@ -112,26 +112,22 @@ public void insertRecord(Object recordBase, long recordOffset, int length, int p
 3. 将数据落盘
 
 writeSortedFile 方法实现如下：
-
-```java
-private void writeSortedFile(boolean isLastFile) throws IOException {
-    ...
+```
+ private void writeSortedFile(boolean isLastFile) {
+        //...
+        // This call performs the actual sort.
+        // 将数据跟分区号排序
     // This call performs the actual sort.
-    // 将数据跟分区号排序
     final ShuffleInMemorySorter.ShuffleSorterIterator sortedRecords =
       inMemSorter.getSortedIterator();
-    final Tuple2<TempShuffleBlockId, File> spilledFileInfo =
-      blockManager.diskBlockManager().createTempShuffleBlock();
-    final File file = spilledFileInfo._2();
-    final TempShuffleBlockId blockId = spilledFileInfo._1();
+    // 用于存放spill信息
     final SpillInfo spillInfo = new SpillInfo(numPartitions, file, blockId);
-
-    final SerializerInstance ser = DummySerializerInstance.INSTANCE;
-
+    // 创建writer
     final DiskBlockObjectWriter writer =
       blockManager.getDiskWriter(blockId, file, ser, fileBufferSizeBytes, writeMetricsToUse);
 
     int currentPartition = -1;
+    final int uaoSize = UnsafeAlignedOffset.getUaoSize();
     while (sortedRecords.hasNext()) {
       sortedRecords.loadNext();
       // 计算数据分区号
@@ -145,15 +141,15 @@ private void writeSortedFile(boolean isLastFile) throws IOException {
         }
         currentPartition = partition;
       }
-      //通过指针（page页及offset）计算数据地址
+        //通过指针（page页及offset）计算数据地址
       final long recordPointer = sortedRecords.packedRecordPointer.getRecordPointer();
       final Object recordPage = taskMemoryManager.getPage(recordPointer);
       final long recordOffsetInPage = taskMemoryManager.getOffsetInPage(recordPointer);
-      int dataRemaining = Platform.getInt(recordPage, recordOffsetInPage);
-      long recordReadPosition = recordOffsetInPage + 4; // skip over record length
-      // 将数据通过writer写出
+      int dataRemaining = UnsafeAlignedOffset.getSize(recordPage, recordOffsetInPage);
+      long recordReadPosition = recordOffsetInPage + uaoSize; // skip over record length
+      //// 将数据通过writer写出, 由于可能使用zero copy技术，每次数据写入字节数有限制，因此此处使用循环调用
       while (dataRemaining > 0) {
-        final int toTransfer = Math.min(DISK_WRITE_BUFFER_SIZE, dataRemaining);
+        final int toTransfer = Math.min(diskWriteBufferSize, dataRemaining);
         Platform.copyMemory(
           recordPage, recordReadPosition, writeBuffer, Platform.BYTE_ARRAY_OFFSET, toTransfer);
         writer.write(writeBuffer, 0, toTransfer);
@@ -161,8 +157,15 @@ private void writeSortedFile(boolean isLastFile) throws IOException {
         dataRemaining -= toTransfer;
       }
       writer.recordWritten();
-      ...
     }
+    final FileSegment committedSegment = writer.commitAndGet();
+    writer.close();
+    if (currentPartition != -1) {
+      spillInfo.partitionLengths[currentPartition] = committedSegment.length();
+      spills.add(spillInfo);
+    }
+    ...
+  }
 ```
 
 ### 为LongArray申请内存空间
