@@ -43,7 +43,8 @@ Flink的TaskExecutor/Container进程主要运行工作线程，其内存管理�
 | 场景二 |            配置FlinkMemory            |
 | 场景三 |            配置TotalMemory            |
 
-### 场景一：已知TaskHeapMemory和ManagedMemory
+场景一：已知TaskHeapMemory和ManagedMemory
+---------------------------------------
 
 | 组件内存               | 计算方法                                           | 默认值 |
 | ---------------------- | -------------------------------------------------- | ------ |
@@ -54,7 +55,7 @@ Flink的TaskExecutor/Container进程主要运行工作线程，其内存管理�
 | TaskOffHeapMemory      | 通过taskmanager.memory.task.off-heap.size获取      | 0      |
 | MetaspaceMemory        | 通过taskmanager.memory.jvm-metaspace.size获取      | 96M    |
 
-#### NetworkMemory的计算：
+### NetworkMemory的计算：
 
 先计算一个出Network之外的内存之和`totalFlinkExcludeNetworkMemorySize`
 
@@ -84,7 +85,7 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
   // 最终计算出来的NetWorkMemory的值应当在范围内[taskmanager.memory.network.min,taskmanager.memory.network.max]，否则会被截取
    ```
 
-#### OverHeadMemory的计算
+### OverHeadMemory的计算
 
 * 如果有配置TotalMemory(通过`taskmanager.memory.process.size`配置)
 
@@ -101,7 +102,8 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
   // 最终计算出来的NetWorkMemory的值应当在范围内[taskmanager.memory.jvm-overhead.min,taskmanager.memory.jvm-overhead.max]，否则会被截取
   ```
 
-### 场景二：已知FlinkMemory
+场景二：已知FlinkMemory
+----------------
 
 | 组件内存               | 计算方法                                           | 默认值 |
 | ---------------------- | -------------------------------------------------- | ------ |
@@ -110,8 +112,8 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
 | TaskOffHeapMemory      | 通过taskmanager.memory.task.off-heap.size获取      | 0      |
 | MetaspaceMemory        | 通过taskmanager.memory.jvm-metaspace.size获取      | 96M    |
 
-#### TaskHeapMemory,ManagedMemory,NetworkMemory的计算
-##### 如果有配置TaskHeapMemory
+### TaskHeapMemory,ManagedMemory,NetworkMemory的计算
+#### 如果有配置TaskHeapMemory
 
 * TaskHeapMemory的计算
 
@@ -137,7 +139,7 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
   ```
   
 
-##### 如果没有配置TaskHeapMemory
+#### 如果没有配置TaskHeapMemory
 
 * Managed Memory的计算：
 
@@ -194,7 +196,8 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
   ```
 
 
-### 场景三:配置TotalMemory
+场景三:配置TotalMemory
+---------------------------
 
 | 组件内存               | 计算方法                                           | 默认值 |
 | ---------------------- | -------------------------------------------------- | ------ |
