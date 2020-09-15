@@ -10,7 +10,7 @@ Flink的TaskExecutor/Container进程主要运行工作线程，其内存管理�
 
 首先看一下进程包含使用的内存分类，如下图：
 
-![Flink Executor 内存模型](https://note.youdao.com/yws/public/resource/309860f8d6d1ca28097175b7c5701261/xmlnote/WEBRESOURCEffcdcf2fe55cc6a96f107cce940e9248/9686)
+![Flink Executor 内存模型](http://note.youdao.com/yws/public/resource/309860f8d6d1ca28097175b7c5701261/xmlnote/WEBRESOURCEffcdcf2fe55cc6a96f107cce940e9248/9686)
 
 
 
