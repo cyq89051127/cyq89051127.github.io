@@ -113,6 +113,7 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
 | MetaspaceMemory        | 通过taskmanager.memory.jvm-metaspace.size获取      | 96M    |
 
 ### TaskHeapMemory,ManagedMemory,NetworkMemory的计算
+
 #### 如果有配置TaskHeapMemory
 
 * TaskHeapMemory的计算
@@ -207,6 +208,7 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
 | MetaspaceMemory        | taskmanager.memory.jvm-metaspace.size              | 96M    |
 
 #### OverHeadMemory内存计算
+
   ```java
   //fraction默认为0.1
   fraction = taskmanager.memory.jvm-overhead.fraction
@@ -214,7 +216,7 @@ totalFlinkExcludeNetworkMemorySize = TaskHeapMemory + TaskOffHeapMemory + Manage
   // 最终计算出来的NetWorkMemory的值应当在范围内[taskmanager.memory.jvm-overhead.min,taskmanager.memory.jvm-overhead.max]，否则会被截取
   ```
 
-### TaskHeapMemory,ManagedMemory,NetworkMemory的计算
+#### TaskHeapMemory,ManagedMemory,NetworkMemory的计算
 
 ##### 如果有配置TaskHeapMemory
 
