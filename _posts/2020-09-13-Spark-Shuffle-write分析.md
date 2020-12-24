@@ -10,14 +10,15 @@ tags:
 
 最新的Spark的shuffleWriter一共有三种（原有的Hash-Based Shuffle已经被删除）,分别对应不同的场景。这三种write分别是:
 
-![UnsafeShuffleWriter](https://cyq89051127.github.io/2020/09/12/Spark-UnsafeShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
-![BypassMergeSortShuffleWriter](https://cyq89051127.github.io/2020/09/13/Spark-ByPassMergeSortShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
-![SortShuffleWriter](https://cyq89051127.github.io/2020/09/13/Spark-SortShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
+[UnsafeShuffleWriter](https://cyq89051127.github.io/2020/09/12/Spark-UnsafeShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
+
+[BypassMergeSortShuffleWriter](https://cyq89051127.github.io/2020/09/13/Spark-ByPassMergeSortShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
+
+[SortShuffleWriter](https://cyq89051127.github.io/2020/09/13/Spark-SortShuffleWriter%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/)
 
 然后这三种write分别使用什么场景，spark又是如何实现shufflewrite的设定
 
 1. 在driver端注册一个shuffle时，根据不同的场景，得到不同的shuffleHandler
-
 
 ![](http://note.youdao.com/yws/public/resource/309860f8d6d1ca28097175b7c5701261/xmlnote/WEBRESOURCEf46ad822360de2a452d0db2cd1c5fb7f/9698)
 
